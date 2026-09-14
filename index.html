@@ -770,6 +770,368 @@
       .strip { flex-wrap: wrap; gap: 18px; }
       .destinations-header { flex-direction: column; align-items: flex-start; gap: 16px; }
     }
+
+    /* ── MOBILE RESPONSIVE REFINEMENTS ── */
+    .menu-toggle,
+    .mobile-menu { display: none; }
+
+    @media (max-width: 900px) {
+      body { cursor: auto; }
+      #cursor, #cursor-ring { display: none; }
+
+      nav {
+        padding: 18px 20px;
+        min-height: 68px;
+      }
+      nav.scrolled {
+        padding: 14px 20px;
+      }
+      .nav-book { display: none; }
+
+      .menu-toggle {
+        display: flex;
+        width: 42px;
+        height: 42px;
+        padding: 0;
+        margin-left: auto;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 6px;
+        border: 1px solid rgba(184,157,114,0.45);
+        background: rgba(26,23,20,0.35);
+        color: var(--ivory);
+        cursor: pointer;
+      }
+      .menu-toggle span {
+        display: block;
+        width: 18px;
+        height: 1px;
+        background: currentColor;
+        transition: transform 0.3s ease, opacity 0.3s ease;
+      }
+      .menu-toggle.active span:first-child {
+        transform: translateY(3.5px) rotate(45deg);
+      }
+      .menu-toggle.active span:last-child {
+        transform: translateY(-3.5px) rotate(-45deg);
+      }
+
+      .mobile-menu {
+        position: absolute;
+        top: 68px;
+        left: 0;
+        right: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+        padding: 8px 20px 22px;
+        background: rgba(20,17,14,0.98);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border-top: 1px solid rgba(184,157,114,0.12);
+        box-shadow: 0 18px 35px rgba(0,0,0,0.25);
+        transform: translateY(-12px);
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
+      }
+      .mobile-menu.open {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+      }
+      .mobile-menu a {
+        padding: 16px 2px;
+        border-bottom: 1px solid rgba(184,157,114,0.10);
+        color: var(--ivory);
+        text-decoration: none;
+        font-size: 0.72rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+      }
+      .mobile-menu-book {
+        margin-top: 18px;
+        padding: 13px 18px;
+        border: 0;
+        background: var(--gold);
+        color: var(--ink);
+        font: 300 0.7rem 'Jost', sans-serif;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        cursor: pointer;
+      }
+
+      .hero {
+        min-height: 100svh;
+        height: 100svh;
+      }
+      .hero-content {
+        width: 100%;
+        padding: 0 20px 54px;
+      }
+      .hero-eyebrow {
+        font-size: 0.58rem;
+        line-height: 1.7;
+        letter-spacing: 0.22em;
+        margin-bottom: 14px;
+      }
+      .hero-title {
+        font-size: clamp(2.8rem, 14vw, 4.2rem);
+        line-height: 1.02;
+        margin-bottom: 20px;
+      }
+      .hero-sub {
+        font-size: 0.78rem;
+        line-height: 1.75;
+        max-width: 100%;
+        margin-bottom: 28px;
+      }
+      .hero-cta {
+        font-size: 0.62rem;
+        letter-spacing: 0.17em;
+      }
+      .scroll-line { display: none; }
+
+      .strip {
+        padding: 16px 20px;
+        gap: 10px 18px;
+        justify-content: flex-start;
+        overflow: hidden;
+      }
+      .strip-item {
+        font-size: 0.55rem;
+        letter-spacing: 0.15em;
+        white-space: nowrap;
+      }
+      .strip-dot { flex: 0 0 4px; }
+
+      .about, .dining {
+        display: flex;
+        flex-direction: column;
+      }
+      .about-image {
+        height: 72vw;
+        min-height: 280px;
+        max-height: 430px;
+      }
+      .about-text,
+      .dining-text {
+        padding: 64px 24px;
+      }
+      .about-text p,
+      .dining-text p {
+        font-size: 0.82rem;
+        line-height: 1.82;
+      }
+      .about-stat {
+        margin-top: 28px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 18px;
+      }
+      .stat-num { font-size: 2.1rem; }
+      .stat-label {
+        font-size: 0.52rem;
+        line-height: 1.5;
+        letter-spacing: 0.12em;
+      }
+
+      .destinations,
+      .rooms,
+      .experiences,
+      .testimonials {
+        padding: 72px 20px;
+      }
+      .destinations-header {
+        margin-bottom: 34px;
+      }
+      .section-label {
+        font-size: 0.56rem;
+        letter-spacing: 0.24em;
+        margin-bottom: 14px;
+      }
+      .section-title {
+        font-size: clamp(2rem, 10vw, 3rem);
+      }
+
+      .dest-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: none;
+        gap: 3px;
+      }
+      .dest-card,
+      .dest-card.tall {
+        grid-row: auto;
+        height: 68vw;
+        min-height: 250px;
+        max-height: 390px;
+      }
+      .dest-card-overlay {
+        padding: 24px 20px;
+      }
+      .dest-name { font-size: 1.35rem; }
+
+      .rooms-header { margin-bottom: 34px; }
+      .rooms-grid {
+        grid-template-columns: 1fr;
+        gap: 48px;
+      }
+      .room-img {
+        height: 72vw;
+        min-height: 250px;
+        max-height: 390px;
+      }
+      .room-info { padding-top: 20px; }
+      .room-name { font-size: 1.35rem; }
+      .room-desc {
+        font-size: 0.78rem;
+        line-height: 1.75;
+      }
+
+      .quote-section {
+        height: 68svh;
+        min-height: 460px;
+      }
+      .quote-inner {
+        width: 100%;
+        padding: 0 24px;
+      }
+      .quote-mark {
+        font-size: 4.5rem;
+        margin-bottom: 22px;
+      }
+      .quote-text {
+        font-size: clamp(1.55rem, 7vw, 2.2rem);
+        line-height: 1.35;
+      }
+      .quote-attr {
+        font-size: 0.56rem;
+        letter-spacing: 0.17em;
+      }
+
+      .exp-grid {
+        grid-template-columns: 1fr;
+        gap: 3px;
+        margin-top: 34px;
+      }
+      .exp-card {
+        height: 118vw;
+        min-height: 330px;
+        max-height: 520px;
+      }
+      .exp-card .exp-desc {
+        max-height: 80px;
+        opacity: 1;
+      }
+
+      .dining-image {
+        order: -1;
+        height: 72vw;
+        min-height: 280px;
+        max-height: 430px;
+      }
+      .dining-text {
+        padding: 64px 24px;
+      }
+
+      .testi-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+        margin-top: 34px;
+      }
+      .testi-card {
+        padding: 32px 24px;
+      }
+      .testi-text {
+        font-size: 1rem;
+        line-height: 1.65;
+      }
+
+      .booking-banner {
+        padding: 44px 20px;
+        gap: 28px;
+      }
+      .booking-banner-text {
+        font-size: clamp(1.8rem, 9vw, 2.5rem);
+      }
+      .booking-form {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 3px;
+      }
+      .booking-form input,
+      .booking-form button {
+        width: 100%;
+        min-height: 48px;
+      }
+
+      footer {
+        padding: 64px 20px 32px;
+      }
+      .footer-top {
+        grid-template-columns: 1fr 1fr;
+        gap: 40px 24px;
+        margin-bottom: 40px;
+        padding-bottom: 40px;
+      }
+      .footer-brand {
+        grid-column: 1 / -1;
+      }
+      .footer-brand p { max-width: 100%; }
+      .footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 22px;
+      }
+      .footer-socials { gap: 16px; flex-wrap: wrap; }
+      .footer-socials a { font-size: 0.58rem; }
+
+      .float-book {
+        right: 16px;
+        bottom: 16px;
+        padding: 12px 18px;
+        font-size: 0.58rem;
+        letter-spacing: 0.16em;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-content { padding-bottom: 44px; }
+      .hero-title { font-size: 2.75rem; }
+      .hero-sub { font-size: 0.74rem; }
+
+      .about-image,
+      .dining-image { height: 78vw; }
+      .about-text,
+      .dining-text,
+      .destinations,
+      .rooms,
+      .experiences,
+      .testimonials { padding-left: 18px; padding-right: 18px; }
+
+      .about-stat { gap: 10px; }
+      .stat-num { font-size: 1.9rem; }
+      .stat-label { font-size: 0.48rem; }
+
+      .dest-card,
+      .dest-card.tall,
+      .room-img { height: 82vw; }
+
+      .exp-card { height: 125vw; }
+
+      .footer-top { grid-template-columns: 1fr; }
+      .footer-brand { grid-column: auto; }
+    }
+
+    @media (min-width: 901px) {
+      .mobile-menu,
+      .menu-toggle { display: none !important; }
+    }
+
   </style>
 </head>
 <body>
@@ -789,6 +1151,17 @@
     <li><a href="#about">Our Story</a></li>
   </ul>
   <button class="nav-book">Reserve</button>
+  <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span>
+  </button>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#destinations">Destinations</a>
+    <a href="#rooms">Rooms</a>
+    <a href="#experiences">Experiences</a>
+    <a href="#dining">Dining</a>
+    <a href="#about">Our Story</a>
+    <button class="mobile-menu-book">Reserve a Stay</button>
+  </div>
 </nav>
 
 <!-- HERO -->
@@ -1124,6 +1497,28 @@
       ring.style.opacity = '1';
     });
   });
+
+  // Mobile navigation
+  const menuToggle = document.getElementById('menuToggle');
+  const mobileMenu = document.getElementById('mobileMenu');
+
+  if (menuToggle && mobileMenu) {
+    menuToggle.addEventListener('click', () => {
+      const open = mobileMenu.classList.toggle('open');
+      menuToggle.classList.toggle('active', open);
+      menuToggle.setAttribute('aria-expanded', String(open));
+      menuToggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    });
+
+    mobileMenu.querySelectorAll('a, .mobile-menu-book').forEach(el => {
+      el.addEventListener('click', () => {
+        mobileMenu.classList.remove('open');
+        menuToggle.classList.remove('active');
+        menuToggle.setAttribute('aria-expanded', 'false');
+        menuToggle.setAttribute('aria-label', 'Open menu');
+      });
+    });
+  }
 
   // Navbar scroll
   const navbar = document.getElementById('navbar');

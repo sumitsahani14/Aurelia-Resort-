@@ -13,7 +13,7 @@ A luxury resort website featuring a full-bleed hero, destination gallery, rooms 
 - Custom animated cursor
 - Scroll-triggered reveal animations
 - Sticky nav with blur on scroll
-- Responsive layout (mobile breakpoint at 900px)
+- Responsive layout with mobile navigation and optimized tablet/mobile layouts
 - Floating "Reserve a Stay" button
 - Sections: Hero → About → Destinations → Rooms → Quote → Experiences → Dining → Testimonials → Booking → Footer
 
